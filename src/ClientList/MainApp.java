@@ -21,6 +21,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.prefs.Preferences;
 
 public class MainApp extends Application {
@@ -111,7 +112,9 @@ public class MainApp extends Application {
     private void showPersonOverview(){
         try{
             FXMLLoader fxmlLayout = new FXMLLoader();
-            fxmlLayout.setLocation(getClass().getResource("View/PersonOverview.fxml"));
+
+            URL location = getClass().getResource("View/PersonOverview.fxml");
+            fxmlLayout.setLocation(location);
             AnchorPane personOverview = fxmlLayout.load();
             rootLayout.setCenter(personOverview);
 
